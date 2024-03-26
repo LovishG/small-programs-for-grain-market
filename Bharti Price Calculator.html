@@ -76,14 +76,7 @@
         />
 
         <label for="bags">Number of Bags:</label>
-        <input
-          type="number"
-          id="bags"
-          name="bags"
-          min="0"
-          step="any"
-          required
-        />
+        <input type="number" id="bags" name="bags" min="0" required />
 
         <label for="weight">Extra Weight (in kg):</label>
         <input
@@ -125,17 +118,17 @@
         .addEventListener("submit", function (event) {
           event.preventDefault();
 
-          var bags = parseFloat(document.getElementById("bags").value);
-          var weight = parseFloat(document.getElementById("weight").value);
-          var bharti = parseFloat(document.getElementById("bharti").value);
-          var price = parseFloat(document.getElementById("price").value);
+          let bags = parseFloat(document.getElementById("bags").value);
+          let weight = parseFloat(document.getElementById("weight").value);
+          let bharti = parseFloat(document.getElementById("bharti").value);
+          let price = parseFloat(document.getElementById("price").value);
 
           if (isNaN(bags) || isNaN(weight) || isNaN(bharti) || isNaN(price)) {
             alert("Please enter valid numbers.");
             return;
           }
 
-          var result = ((bags * bharti + weight) / 100) * price;
+          let result = ((bags * bharti + weight) / 100) * price;
           document.getElementById(
             "result"
           ).innerHTML = `Total Price: ₹ ${formatIndianCurrency(
@@ -144,7 +137,7 @@
         });
 
       // Add event listeners to clear result when input values are changed
-      var inputs = document.querySelectorAll("#bagForm input[type='number']");
+      let inputs = document.querySelectorAll("#bagForm input[type='number']");
       inputs.forEach(function (input) {
         input.addEventListener("input", function () {
           document.getElementById("result").innerHTML = "";
